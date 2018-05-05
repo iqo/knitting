@@ -26,7 +26,7 @@ exports.findUser =  function(req, res){
 exports.create = function(req, res){
     //create and save a new user
     if(!req.body.content){
-        res.status(500).send({message: "need to fill in userr fields "});
+        res.status(500).send({message: "need to fill in user fields "});
     } 
     var user = new User({userEmail: req.body.email || "password",  userPassword: md5(req.body.password)});
     /*var user = new User();
