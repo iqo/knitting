@@ -1,4 +1,4 @@
-From node:carbon
+FROM node:carbon
 
 RUN mkdir -p /usr/src/app
 
