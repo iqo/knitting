@@ -1,1 +1,3 @@
-export const url = 'mongodb://mongo/knittingDB';
+module.exports = { 
+    url: 'mongodb://mongo/knittingDB'
+};
