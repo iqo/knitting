@@ -1,36 +1,36 @@
-var express     =   require("express");
-var app         =   express();
-var bodyParser  =   require("body-parser");
-var dbConfig    =   require("./config/database.config.js");
-var mongoose    =   require("mongoose");
+// get dependencies
+/*import express from "express";
+import path from "path";
+import http from "http";
+import bodyParser from "body-parser";
+// api routes
+import api from "./routes/api";*/
 
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
-//require("./dbconnect/connectdb")(app);
+// Get dependencies
+const express = require('express');
+const path = require('path');
+const http = require('http');
+const bodyParser = require('body-parser');
 
+// Get our API routes
+const api = require('./routes/api');
 
-//databse config-------------------------------------------
-mongoose.connect(dbConfig.url, {useMongoClient: true});
+const app = express();
+// parser for post data 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-mongoose.connection.on("error", function(){
-    console.log("could not connect to the database");
-    process.exit();
-});
+// set api routes
+app.use('/', api);
 
-mongoose.connection.once("open", function(){
-    console.log("connected to the database");
-});
+// store enviroment port in express
+const port = process.env.PORT || '3000';
 
-//---------------------------------------------------------
+app.set('port', port);
 
-app.get('/', function(req, res){
-    res.json({"message": "it works"});
-});
+// create http server
+const server = http.createServer(app);
 
-//require routes-------------------------------------------
-require("./app/routes/user.routes.js")(app);
-//---------------------------------------------------------
-app.listen(3000,function(){
-    console.log("Server listenng on port 3000");
-});
+// listen on provided port
 
+server.listen(port, () => console.log(`API running on localhost:${port}`));
