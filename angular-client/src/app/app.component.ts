@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   API = 'http://localhost:3000';
 
   // Declare empty list of people
-  people: any[] = [];
+  picture: any[] = [];
 
   constructor(private http: Http) {}
 
@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
   }
 
   // Add one person to the API
-  addPerson(name, age) {
-    this.http.post(`${this.API}/pictures`, {name, age})
+  addPerson(pictureName, pictureDescription) {
+    this.http.post(`${this.API}/pictures`, {pictureName, pictureDescription})
       .pipe(map(res => res.json()))
       .subscribe(() => {
         this.getAllPeople();
@@ -38,9 +38,9 @@ export class AppComponent implements OnInit {
   getAllPeople() {
     this.http.get(`${this.API}/pictures`)
       .pipe(map(res => res.json()))
-      .subscribe(people => {
-        console.log(people)
-        this.people = people
+      .subscribe(picture => {
+        console.log(picture)
+        this.picture = picture
       }, error => console.log(error))
   }
 }
