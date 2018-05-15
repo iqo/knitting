@@ -1,3 +1,3 @@
 module.exports = { 
-    url: 'mongodb://mongo/knittingDB'
+    url: 'mongodb://database/knittingDB'
 };
