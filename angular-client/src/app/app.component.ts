@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
-// Import rxjs map operator
-import 'rxjs/add/operator/map';
+// import 'rxjs/add/operator/map';
+import { map } from "rxjs/operators";
 
 @Component({
   selector: 'app-root',
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   // Add one person to the API
   addPerson(name, age) {
     this.http.post(`${this.API}/pictures`, {name, age})
-      .map(res => res.json())
+      .pipe(map(res => res.json()))
       .subscribe(() => {
         this.getAllPeople();
       }, error => console.log(error))
@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
   // Get all users from the API
   getAllPeople() {
     this.http.get(`${this.API}/pictures`)
-      .map(res => res.json())
+      .pipe(map(res => res.json()))
       .subscribe(people => {
         console.log(people)
         this.people = people
