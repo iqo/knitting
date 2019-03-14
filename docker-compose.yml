@@ -1,19 +1,22 @@
-version: '2'
+version: '3.1'
 
 services:
-    angular: # name of the first service
-        build: angular-client # specify the directory of the Dockerfile
-        ports:
-            - "4200:4200" # specify port forewarding
 
-    express:
-        build: backend
-        ports:
-            - "3000:3000"
-        links:
-            - database
+  db:
+    image: mariadb
+    restart: always
+    ports:
+    - 3360:3360
+    environment:
+        MYSQL_ROOT_PASSWORD: gP6eeaum
+        MYSQL_DATABASE: mybb
+        MYSQL_USER: mybb
+        MYSQL_PASSWORD: gP6eeaum
 
-    database:
-        image: mongo
-        ports:
-            - "27017:27017"
+
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
