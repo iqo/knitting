@@ -3,14 +3,14 @@ version: '3.1'
 services:
 
   db:
-    image: mariadb
+    image: mariadb:latest
     restart: always
     ports:
-    - 3360:3360
+    - 3306:3306
     environment:
         MYSQL_ROOT_PASSWORD: gP6eeaum
-        MYSQL_DATABASE: mybb
-        MYSQL_USER: mybb
+        MYSQL_DATABASE: testdb
+        MYSQL_USER: iqo
         MYSQL_PASSWORD: gP6eeaum
 
 
