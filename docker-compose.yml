@@ -8,11 +8,10 @@ services:
     ports:
     - 3306:3306
     environment:
-        MYSQL_ROOT_PASSWORD: gP6eeaum
-        MYSQL_DATABASE: testdb
+        MYSQL_ROOT_PASSWORD: shegg
         MYSQL_USER: iqo
-        MYSQL_PASSWORD: gP6eeaum
-
+        MYSQL_PASSWORD: shegg
+        
 
 
   adminer:
