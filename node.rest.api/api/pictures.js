@@ -1,6 +1,9 @@
-import express from "express";
+/* import express from "express";
 import db from "../db/database";
-import Picture from "../domain/picture";
+import Picture from "../domain/picture"; */
+const express = require('express');
+const db = require('../db/database');
+const Picture = require('../domain/picture');
 
 const router = express.Router();
 

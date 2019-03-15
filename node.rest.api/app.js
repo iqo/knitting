@@ -1,7 +1,12 @@
-import express from "express";
+/* import express from "express";
 import bodyparser from "body-parser";
 import cors from "cors";
-import pictures from "./api/pictures";
+import pictures from "./api/pictures"; */
+const express = require('express');
+const bodyparser = require('body-parser');
+const cors = require('cors');
+const pictures = require('./api/pictures');
+
 
 const app = express();
 

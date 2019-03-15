@@ -1,4 +1,5 @@
-import mysql from "mysql";
+// import mysql from "mysql";
+const mysql = require('mysql')
 
 const pool = mysql.createPool({
             connectionLimit : 10,
