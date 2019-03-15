@@ -9,11 +9,7 @@ services:
     - 3306:3306
     environment:
         MYSQL_ROOT_PASSWORD: shegg
-        MYSQL_USER: iqo
-        MYSQL_PASSWORD: shegg
         
-
-
   adminer:
     image: adminer
     restart: always
