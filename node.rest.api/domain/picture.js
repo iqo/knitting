@@ -1,6 +1,6 @@
 class Picture {
     constructor(name,description) {
-       this.pic_id=0;
+        this.pic_id=0;
         this.picture_name=name;
         this.picture_description=description;
     }
@@ -12,7 +12,7 @@ class Picture {
     } */
 
     static getAllPicturesSQL(){
-        let sql = `SELECT * FROM PICTURES`;
+        let sql = `SELECT * FROM pictures`;
         return sql;
     }
 

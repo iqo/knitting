@@ -13,7 +13,7 @@ router.get("/", (req, res, next) => {
         if(!err) {
             res.status(200).json({
                 message:"Pictures listed.",
-                productId:data
+                pictureId:data
             });
         }
     });    
