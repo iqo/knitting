@@ -5,7 +5,7 @@ import pictures from "./api/pictures"; */
 const express = require('express');
 const bodyparser = require('body-parser');
 const cors = require('cors');
-// const pictures = require('./api/pictures');
+const pictures = require('./api/pictures');
 const testapi = require('./api/testApi')
 
 
@@ -15,7 +15,7 @@ app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
 
-// app.use("/pictures",pictures);
+app.use("/pictures",pictures);
 // app.use("/orders",orders);
 app.use("/",testapi);
 
