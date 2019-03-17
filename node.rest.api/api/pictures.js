@@ -1,6 +1,3 @@
-/* import express from "express";
-import db from "../db/database";
-import Picture from "../domain/picture"; */
 const express = require('express');
 const db = require('../db/database');
 const Picture = require('../domain/picture');
@@ -19,29 +16,16 @@ router.get("/", (req, res, next) => {
     });    
 });
 
-/* router.post("/add", (req, res, next) => {
-
-    //read product information from request
-    let picture = new Picture(req.body.picture_name, req.body.picture_description); //Product(req.body.prd_name, req.body.prd_price);
-
-    db.query(product.getAddProductSQL(), (err, data)=> {
-        res.status(200).json({
-            message:"picture added.",
-            pictureId: data.insertId
-        });
-    });
-}); */
-
-/* router.get("/:pictureId", (req, res, next) => {
+router.get("/:pictureId", (req, res, next) => {
     let pid = req.params.pictureId;
 
-    db.query(Picture.getProductByIdSQL(pid), (err, data)=> {
+    db.query(Picture.getPictureByIdSQL(pid), (err, data)=> {
         if(!err) {
             if(data && data.length > 0) {
                 
                 res.status(200).json({
                     message:"Picture found.",
-                    picture: data
+                    picture:data
                 });
             } else {
                 res.status(200).json({
@@ -50,26 +34,41 @@ router.get("/", (req, res, next) => {
             }
         } 
     });    
-}); */
+});
 
-/* router.post("/delete", (req, res, next) => {
+ router.post("/add", (req, res, next) => {
+    let picture = new Picture(req.body.picture_name, req.body.picture_description); //Product(req.body.prd_name, req.body.prd_price);
 
-    var pid = req.body.productId;
+    db.query(picture.getAddPictureSQL(), (err, data)=> {
+        console.log("test", data);
 
-    db.query(Picture.deleteProductByIdSQL(pid), (err, data)=> {
+        res.status(200).json({
+            message:"picture added.",
+           pictureId:data.pictureId
+        });
+    });
+});
+
+
+
+router.post("/delete", (req, res, next) => {
+
+    var pid = req.body.pictureId;
+
+    db.query(Picture.deletePictureByIdSQL(pid), (err, data)=> {
         if(!err) {
             if(data && data.affectedRows > 0) {
                 res.status(200).json({
-                    message:`Product deleted with id = ${pid}.`,
+                    message:`Picture deleted with id = ${pid}.`,
                     affectedRows: data.affectedRows
                 });
             } else {
                 res.status(200).json({
-                    message:"Product Not found."
+                    message:"Picture Not found."
                 });
             }
         } 
     });   
-}); */
+});
 
 module.exports = router;

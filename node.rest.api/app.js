@@ -1,7 +1,3 @@
-/* import express from "express";
-import bodyparser from "body-parser";
-import cors from "cors";
-import pictures from "./api/pictures"; */
 const express = require('express');
 const bodyparser = require('body-parser');
 const cors = require('cors');
@@ -16,12 +12,11 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
 
 app.use("/pictures",pictures);
-// app.use("/orders",orders);
 app.use("/",testapi);
 
 //if we are here then the specified request is not found
 app.use((req,res,next)=> {
-    const err = new Error("Not Found app");
+    const err = new Error("Not Found");
     err.status = 404;
     next(err);
 });

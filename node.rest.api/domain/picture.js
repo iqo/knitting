@@ -5,26 +5,29 @@ class Picture {
         this.picture_description=description;
     }
 
-    /* getAddProductSQL() {
-        let sql = `INSERT INTO PICTURES(picture_name, picture_description) \
-                   VALUES('${this.picture_name}',${this.picture_description})`;
-        return sql;           
-    } */
 
     static getAllPicturesSQL(){
         let sql = `SELECT * FROM pictures`;
         return sql;
     }
 
-    /* static getProductByIdSQL(pic_id) {
-        let sql = `SELECT * FROM PICTURES WHERE PICTURE_ID = ${pic_id}`;
+     static getPictureByIdSQL(pic_id) {
+        let sql = `SELECT * FROM pictures WHERE picture_id = ${pic_id}`;
+        return sql;           
+     }
+
+    getAddPictureSQL() {
+        console.log(this.picture_name, this.picture_description)
+        let sql = `INSERT INTO pictures(picture_name, picture_description) \
+                   VALUES('${this.picture_name}','${this.picture_description}')`;
         return sql;           
     }
 
-    static deleteProductByIdSQL(pic_id) {
-        let sql = `DELETE FROM PICTURES WHERE PICTURE_ID = ${pic_id}`;
+    static deletePictureByIdSQL(pic_id) {
+        console.log(pic_id);
+        let sql = `DELETE FROM pictures WHERE picture_id = ${pic_id}`;
         return sql;           
-    } */
+    }
 }
 
 // export default Picture;
