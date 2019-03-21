@@ -1,23 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Picture } from '../models/picture.model'
+import { Picture } from '../../models/picture.model'
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { MessageService } from '../message/message.service';
 @Injectable({
   providedIn: 'root'
 })
 export class PictureService {
 
-  private pictureUrl = 'http://localhost:6001/pictures';
-  constructor(private http: HttpClient) { }
+  // private pictureUrl = 'localhost:6001/pictures';
+  private pictureUrl = '127.0.0.1:6001';
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+    ) { }
 
   /** GET heroes from the server */
-getPictures (): Observable<Picture[]> {
-  return this.http.get<Picture[]>(this.pictureUrl)
+getPictures(): Observable<Picture[]> {
+  /* return this.http.get<Picture[]>(this.pictureUrl)
     .pipe(
-      tap(_ => this.log('fetched heroes')),
+      tap(_ => this.log('fetched pictures')),
       catchError(this.handleError<Picture[]>('getHeroes', []))
-    );
+    );*/ 
 }
 
     /**
@@ -42,7 +47,7 @@ getPictures (): Observable<Picture[]> {
 
     /** Log a HeroService message with the MessageService */
     private log(message: string) {
-      // this.messageService.add(`HeroService: ${message}`);
+      this.messageService.add(`pictureService: ${message}`);
     }
 
 }
