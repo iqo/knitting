@@ -14,12 +14,12 @@ export class KnittingDetailComponent implements OnInit {
     ) { }
  
   ngOnInit() {
-    this.getPictures()
+   this.getPictures();
   }
    
   getPictures(): void {
     this.pictureService.getPictures()
     .subscribe(pictures => this.pictures = pictures);
     console.log('pictures', this.pictures);
-  }  
+  } 
 }
