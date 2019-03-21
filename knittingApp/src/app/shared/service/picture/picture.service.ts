@@ -18,11 +18,11 @@ export class PictureService {
 
   /** GET heroes from the server */
 getPictures(): Observable<Picture[]> {
-  /* return this.http.get<Picture[]>(this.pictureUrl)
+  return this.http.get<Picture[]>(this.pictureUrl)
     .pipe(
       tap(_ => this.log('fetched pictures')),
       catchError(this.handleError<Picture[]>('getHeroes', []))
-    );*/ 
+    );
 }
 
     /**
