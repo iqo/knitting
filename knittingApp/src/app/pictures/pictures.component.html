@@ -3,15 +3,20 @@
     <div class="jumbotron">
       <h1>look at my stuff</h1>
     </div>
-
-<li *ngFor="let picture of pictures">
+</div>
+<div class="container">
+    <div class="row">
+<div *ngFor="let picture of pictures">
+    <div class="col">
 <div class="card" style="width: 18rem;">
   <img src="https://previews.123rf.com/images/bialasiewicz/bialasiewicz1502/bialasiewicz150200578/36878830-image-of-grandma-lying-in-bed-and-knitting.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <p class="card-text">{{picture.picture_id}} {{picture.picture_description}}</p>
+      <h5 class="card-title">{{picture.picture_name}}</h5>
+    <div class="card-text">{{picture.picture_id}} {{picture.picture_description}}</div>
   </div>
-  
 </div>
-</li>
+</div>
+</div>
+</div>
 </div>
 <router-outlet></router-outlet>
