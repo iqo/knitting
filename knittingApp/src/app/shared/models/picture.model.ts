@@ -1,5 +1,5 @@
 export class Picture {
+    picture_description: string;
     picture_id: number;
-    picture_name: string
-    picture_description: string
+    picture_name: string;
 }

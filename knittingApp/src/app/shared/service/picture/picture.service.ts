@@ -26,13 +26,9 @@ getPictures(): Observable<Picture[]> {
   return this.http.get<Picture[]>(this.pictureUrl)
     .pipe(
       tap(_ => this.log('fetched pictures')),
-      catchError(this.handleError<Picture[]>('getHeroes', []))
+      catchError(this.handleError<Picture[]>('getPictures', []))
     );
 }
-/* getPictures(){
-  this.http.get('http://192.168.1.252:6001/pictures').subscribe(res => console.log(res))
-} */
-
     /**
      * Handle Http operation that failed.
      * Let the app continue.

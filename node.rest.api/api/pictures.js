@@ -8,10 +8,10 @@ router.get("/", (req, res, next) => {
 
     db.query(Picture.getAllPicturesSQL(), (err, data)=> {
         if(!err) {
-            res.status(200).json({
-                message:"Pictures listed.",
-                pictureId:data
-            });
+            res.status(200).json(
+                // message:"Pictures listed.",
+                data
+            );
         }
     });    
 });
