@@ -1,8 +1,9 @@
 class Picture {
-    constructor(name,description) {
+    constructor(name,description, filename) {
         this.pic_id=0;
         this.picture_name=name;
         this.picture_description=description;
+        this.file_name = filename;
     }
 
 
@@ -18,8 +19,8 @@ class Picture {
 
     getAddPictureSQL() {
         console.log(this.picture_name, this.picture_description)
-        let sql = `INSERT INTO pictures(picture_name, picture_description) \
-                   VALUES('${this.picture_name}','${this.picture_description}')`;
+        let sql = `INSERT INTO pictures(picture_name, picture_description, file_name) \
+                   VALUES('${this.picture_name}','${this.picture_description}','${this.file_name}')`;
         return sql;           
     }
 

@@ -37,7 +37,7 @@ router.get("/:pictureId", (req, res, next) => {
 });
 
  router.post("/add", (req, res, next) => {
-    let picture = new Picture(req.body.picture_name, req.body.picture_description); //Product(req.body.prd_name, req.body.prd_price);
+    let picture = new Picture(req.body.picture_name, req.body.picture_description, req.body.file_name); //Product(req.body.prd_name, req.body.prd_price);
 
     db.query(picture.getAddPictureSQL(), (err, data)=> {
         console.log("test", data);
