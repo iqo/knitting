@@ -5,7 +5,8 @@ import { PicturesComponent } from './pictures/pictures.component';
 import { InformationComponent } from './information/information.component';
 
 const routes: Routes = [  
-{ path: 'detail/:id', component: KnittingDetailComponent },
+{ path: 'pictures', component: PicturesComponent },
+{ path: '', redirectTo: '/pictures', pathMatch: 'full' },
 { path: 'about', component:  InformationComponent}];
 
 @NgModule({

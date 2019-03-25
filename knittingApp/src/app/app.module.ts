@@ -7,6 +7,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { PicturesComponent } from './pictures/pictures.component';
 import { RootComponent } from './root/root.component';
 import { InformationComponent } from './information/information.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { InformationComponent } from './information/information.component';
     MessagesComponent,
     PicturesComponent,
     RootComponent,
-    InformationComponent
+    InformationComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
