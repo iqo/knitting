@@ -1,26 +1,16 @@
-<div style="text-align:center">
-  <div class="container">
-    <div class="jumbotron">
-      <h1>Saker jag har stickat</h1>
-    </div>
-    <div class="container">
+<div class="container">
       <div class="row">
-        <div class="card-group">
-          <div *ngFor="let picture of pictures">
-            <div class="card" style="width: 20rem;">
-              <img
-                src="../../assets/img/{{ picture.file_name }}"
-                class="card-img-top"
-                alt="..."
-              />
-              <!--<div class="card-body">
-              <h5 class="card-title">{{ picture.picture_name }}</h5>
-              <div class="card-text">{{ picture.picture_description }}</div>
-            </div> -->
+        <div class="album py-5">
+          <div class="card-deck ">
+            <div *ngFor="let picture of pictures">
+              <div class="card mb-4 box-shadow" style="width: 20rem;">
+                <img
+                  data-src="../../assets/img/{{ picture.file_name }}"
+                  class="card-img-top"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
