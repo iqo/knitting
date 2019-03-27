@@ -15,7 +15,9 @@ const httpOptions = {
 export class PictureService {
 
   // private pictureUrl = 'http://localhost:6001/pictures';
-  private pictureUrl = 'http://192.168.1.252:6001/pictures';
+  private pictureUrl = 'http://127.0.0.1:6001/pictures';
+  
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService

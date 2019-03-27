@@ -1,11 +1,16 @@
 version: "3.1"
 
 services:
+  #angular: # name of the first service
+    #build: knittingApp # specify the directory of the Dockerfile
+    #ports:
+      #- "4200:4200" # specify port forewarding
+
   express:
     build: node.rest.api
     ports:
       - "6001:6001"
-    links :
+    links:
       - db
 
   db:
