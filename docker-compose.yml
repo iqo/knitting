@@ -1,15 +1,21 @@
-version: '3.1'
+version: "3.1"
 
 services:
+  express:
+    build: node.rest.api
+    ports:
+      - "6001:6001"
+    links :
+      - db
 
   db:
     image: mariadb:latest
     restart: always
     ports:
-    - 3306:3306
+      - 3306:3306
     environment:
-        MYSQL_ROOT_PASSWORD: shegg
-        
+      MYSQL_ROOT_PASSWORD: shegg
+
   adminer:
     image: adminer
     restart: always
