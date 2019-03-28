@@ -1,0 +1,16 @@
+<div class="container">
+      <div class="row">
+        <div class="album py-5">
+          <div class="card-deck ">
+            <div *ngFor="let picture of pictures">
+              <div class="card mb-4 box-shadow" style="width: 20rem;">
+                <img
+                  data-src="../../assets/img/{{ picture.file_name }}"
+                  class="card-img-top"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,19 +1,28 @@
-version: '2'
+version: "3.1"
 
 services:
-    angular: # name of the first service
-        build: angular-client # specify the directory of the Dockerfile
-        ports:
-            - "4200:4200" # specify port forewarding
+  #angular: # name of the first service
+    #build: knittingApp # specify the directory of the Dockerfile
+    #ports:
+      #- "4200:4200" # specify port forewarding
 
-    express:
-        build: backend
-        ports:
-            - "3000:3000"
-        links:
-            - database
+  express:
+    build: node.rest.api
+    ports:
+      - "6001:6001"
+    links:
+      - db
 
-    database:
-        image: mongo
-        ports:
-            - "27017:27017"
+  db:
+    image: mariadb:latest
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: shegg
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
